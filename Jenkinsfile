@@ -7,6 +7,7 @@ pipeline {
     }
     environment {
         // If your using the official maven image, these are probably where it puts it
+        JAVA_HOME= '/opt/java/openjdk'
         MAVEN_HOME = 'usr/local/maven'
     }
     stages {
