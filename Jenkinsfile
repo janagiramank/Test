@@ -1,8 +1,6 @@
 #!groovy
 
 pipeline {
-    agent { label 'jenkins-java-docker' }
-
     stages {
         stage("Tests & Package") {
             steps {
