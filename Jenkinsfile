@@ -1,11 +1,17 @@
 #!groovy
 
+tools {
+    jdk 'OpenJDK 11'
+}
 pipeline {
-    agent { docker { image 'maven:3.8.4-openjdk-11-slim' } }
     stages {
         stage('build') {
             steps {
                 sh 'mvn --version'
+                script {
+                    TAG_SELECTOR = readMavenPom().getVersion()
+                }
+                echo("TAG_SELECTOR=${TAG_SELECTOR}")
             }
         }
     }
