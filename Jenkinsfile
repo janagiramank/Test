@@ -1,18 +1,12 @@
 #!groovy
 
 pipeline {
+    agent { docker { image 'maven:3.8.4-openjdk-11-slim' } }
     stages {
-        stage("Tests & Package") {
+        stage('build') {
             steps {
-                checkout scm
-                sh "mvn clean verify"
-                sh "mvn --batch-mode -U deploy"
-                script {
-                    TAG_SELECTOR = readMavenPom().getVersion()
-                }
-                echo("TAG_SELECTOR=${TAG_SELECTOR}")
+                sh 'mvn --version'
             }
         }
-
     }
 }
