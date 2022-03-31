@@ -3,11 +3,6 @@
 pipeline {
     agent { label 'jenkins-java-docker' }
 
-    tools {
-        jdk 'OpenJDK 11'
-    }
-
-
     stages {
         stage("Tests & Package") {
             steps {
