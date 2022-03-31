@@ -9,6 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh 'mvn --version'
                 script {
                     TAG_SELECTOR = readMavenPom().getVersion()
                 }
