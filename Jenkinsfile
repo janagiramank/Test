@@ -31,7 +31,7 @@ pipeline {
     }
     post{
         always{
-            slackSend channel: 'general'
+            slackSend channel: 'general' , message: 'please check the pipeline status'
         }
     }
 }
