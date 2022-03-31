@@ -4,12 +4,9 @@ pipeline {
     agent any
     tools {
         jdk 'OpenJDK 11'
+        maven 'Maven 3.8.5'
     }
-    environment {
-        // If your using the official maven image, these are probably where it puts it
-        JAVA_HOME= '/opt/java/openjdk'
-        MAVEN_HOME = 'usr/local/maven'
-    }
+
     stages {
         stage('Build') {
             steps {
