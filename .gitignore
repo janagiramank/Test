@@ -1,0 +1,33 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+.gradle/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+
+#Class Files #
+*.class
+
+#Integration Test
+src/test/resources/integration-test/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.tar
+*.zip
+*.rpm
+outputs/rpm/*
+pom.xml.versionsBackup
