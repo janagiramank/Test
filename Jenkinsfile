@@ -14,8 +14,10 @@ pipeline {
                 sh 'mvn --version'
                 script {
                     TAG_SELECTOR = readMavenPom().getVersion()
+                    GIT_TAG = getArtefactVersionFromLastCommitTag()
                 }
                 echo("TAG_SELECTOR=${TAG_SELECTOR}")
+                echo("GIT_TAG_SELECTOR=${GIT_TAG}")
             }
         }
         stage('Test') {
@@ -34,4 +36,8 @@ pipeline {
             slackSend channel: 'general' , message: 'please check the pipeline status'
         }
     }
+}
+def getArtefactVersionFromLastCommitTag() {
+    version = sh script: "git describe --abbrev=0 | sed -E 's/^v(.*)/\\1/g' | tr -d '\\n'", returnStdout: true
+    return version
 }
