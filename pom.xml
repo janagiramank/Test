@@ -45,52 +45,8 @@
 						<developmentBranch>main</developmentBranch>
 					</gitFlowConfig>
 					<commitMessages>
-						<featureStartMessage>Update versions for feature branch</featureStartMessage>
-						<featureFinishMessage>Update versions for development branch</featureFinishMessage>
-
-						<hotfixStartMessage>Update versions for hotfix</hotfixStartMessage>
-						<hotfixFinishMessage>Update for next development version</hotfixFinishMessage>
-
-						<hotfixVersionUpdateMessage>Update to hotfix version</hotfixVersionUpdateMessage>
-
-						<releaseStartMessage>Update versions for release -1</releaseStartMessage>
-						<releaseFinishMessage>Update for next development version-1</releaseFinishMessage>
-
-						<releaseVersionUpdateMessage>Update for next development version</releaseVersionUpdateMessage>
-
-						<!-- git merge messages -->
-						<!-- Default git merge commit message will be used if left empty or undefined. -->
-
-						<releaseFinishMergeMessage></releaseFinishMergeMessage>
-						<releaseFinishDevMergeMessage></releaseFinishDevMergeMessage>
-
-						<featureFinishDevMergeMessage></featureFinishDevMergeMessage>
-						<featureSquashMessage></featureSquashMessage>
-
-						<hotfixFinishMergeMessage></hotfixFinishMergeMessage>
-						<hotfixFinishDevMergeMessage></hotfixFinishDevMergeMessage>
-						<hotfixFinishReleaseMergeMessage></hotfixFinishReleaseMergeMessage>
-						<hotfixFinishSupportMergeMessage></hotfixFinishSupportMergeMessage>
-
-						<!-- / git merge messages -->
-
-						<tagHotfixMessage>Tag hotfix</tagHotfixMessage>
-						<tagReleaseMessage>Tag release</tagReleaseMessage>
-						<tagVersionUpdateMessage>Tag version update</tagVersionUpdateMessage>
-
-						<!-- Migration Note: This was called <updateDevToAvoidConflitsMessage> in version 1.11.0, but has been deprecated in favour of the correctly spelt one below. -->
-						<updateDevToAvoidConflictsMessage>Update develop to production version to avoid merge conflicts</updateDevToAvoidConflictsMessage>
-						<updateDevBackPreMergeStateMessage>Update develop version back to pre-merge state</updateDevBackPreMergeStateMessage>
-
-						<updateReleaseToAvoidConflictsMessage>Update release to hotfix version to avoid merge conflicts</updateReleaseToAvoidConflictsMessage>
-						<updateReleaseBackPreMergeStateMessage>Update release version back to pre-merge state</updateReleaseBackPreMergeStateMessage>
-
-						<updateFeatureBackMessage>Update feature branch back to feature version</updateFeatureBackMessage>
-						<featureFinishIncrementVersionMessage>Increment feature version</featureFinishIncrementVersionMessage>
-
-						<supportStartMessage>Update versions for support branch</supportStartMessage>
-
-						<versionUpdateMessage>Update versions</versionUpdateMessage>
+						<releaseStartMessage>[ci skip]</releaseStartMessage>
+						<releaseFinishMessage>[ci skip]</releaseFinishMessage>
 					</commitMessages>
 				</configuration>
 			</plugin>
