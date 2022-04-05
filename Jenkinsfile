@@ -14,6 +14,7 @@ pipeline {
                 sh 'mvn --version'
                 script {
                     def pom = readMavenPom file: 'pom.xml'
+                    sh "git config pull.rebase false"
                     sh "git pull"
                     GIT_TAG = getArtefactVersionFromLastCommitTag()
                 }
