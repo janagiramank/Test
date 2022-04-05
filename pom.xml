@@ -40,7 +40,16 @@
 				<artifactId>gitflow-maven-plugin</artifactId>
 				<version>1.18.0</version>
 				<configuration>
-					<!-- optional configuration -->
+					<gitFlowConfig>
+						<productionBranch>main</productionBranch>
+						<developmentBranch>main</developmentBranch>
+						<featureBranchPrefix>RS-</featureBranchPrefix>
+						<releaseBranchPrefix>release/</releaseBranchPrefix>
+						<hotfixBranchPrefix>hotfix/</hotfixBranchPrefix>
+						<supportBranchPrefix>support/</supportBranchPrefix>
+						<versionTagPrefix></versionTagPrefix>
+						<origin>origin</origin>
+					</gitFlowConfig>
 				</configuration>
 			</plugin>
 		</plugins>
