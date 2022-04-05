@@ -10,13 +10,11 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>test</artifactId>
-	<version>${revision}</version>
+	<version>0.0.11-SNAPSHOT</version>
 	<name>test</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
-		<skipUpdateVersion>true</skipUpdateVersion>
-		<pushRemote>false</pushRemote>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -46,6 +44,11 @@
 						<productionBranch>main</productionBranch>
 						<developmentBranch>main</developmentBranch>
 					</gitFlowConfig>
+					<commitMessages>
+						<tagReleaseMessage>Tag release -1</tagReleaseMessage>
+						<!-- Migration Note: This was called <updateDevToAvoidConflitsMessage> in version 1.11.0, but has been deprecated in favour of the correctly spelt one below. -->
+						<versionUpdateMessage>Update versions -1</versionUpdateMessage>
+					</commitMessages>
 				</configuration>
 			</plugin>
 		</plugins>
