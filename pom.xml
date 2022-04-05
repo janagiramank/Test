@@ -42,13 +42,6 @@
 				<configuration>
 					<gitFlowConfig>
 						<productionBranch>main</productionBranch>
-						<developmentBranch>main</developmentBranch>
-						<featureBranchPrefix>RS-</featureBranchPrefix>
-						<releaseBranchPrefix>release/</releaseBranchPrefix>
-						<hotfixBranchPrefix>hotfix/</hotfixBranchPrefix>
-						<supportBranchPrefix>support/</supportBranchPrefix>
-						<versionTagPrefix></versionTagPrefix>
-						<origin>origin</origin>
 					</gitFlowConfig>
 				</configuration>
 			</plugin>
