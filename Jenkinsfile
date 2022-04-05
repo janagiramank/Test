@@ -18,7 +18,7 @@ pipeline {
                 echo 'Building..'
                 sh 'mvn --version'
                 script {
-                    def pom = readMavenPom file: 'pom.xml'
+                    def pom = readMavenPom 'pom.xml'
                     sh "mvn -B gitflow:release -Drevision=${pom.version.replaceAll("-SNAPSHOT","")}"
                     GIT_TAG = getArtefactVersionFromLastCommitTag()
                 }
