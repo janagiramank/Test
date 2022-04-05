@@ -8,26 +8,21 @@ pipeline {
     }
 
     stages {
+        stage('Checkout') {
+            steps {
+                scmSkip(deleteBuild: true, skipPattern:'.*\\[ci skip\\].*')
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Building..'
                 sh 'mvn --version'
                 script {
-                    TAG_SELECTOR = readMavenPom().getVersion()
+                    def pom = readMavenPom file: 'pom.xml'
+                    sh "mvn -B gitflow:release -Drevision=${pom.version.replaceAll("-SNAPSHOT","")}"
                     GIT_TAG = getArtefactVersionFromLastCommitTag()
                 }
-                echo("TAG_SELECTOR=${TAG_SELECTOR}")
                 echo("GIT_TAG_SELECTOR=${GIT_TAG}")
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
             }
         }
     }
