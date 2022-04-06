@@ -41,8 +41,8 @@
 				<version>1.18.0</version>
 				<configuration>
 					<gitFlowConfig>
-						<productionBranch>main</productionBranch>
-						<developmentBranch>main</developmentBranch>
+						<productionBranch>origin main</productionBranch>
+						<developmentBranch>origin main</developmentBranch>
 					</gitFlowConfig>
 					<commitMessages>
 						<releaseStartMessage>[ci skip]</releaseStartMessage>
