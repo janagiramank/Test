@@ -18,7 +18,7 @@ pipeline {
                 echo 'Building..'
                 sh 'mvn --version'
                 script {
-                    withCredentials([sshUserPrivateKey(credentialsId: 'git-ssh')]) {
+                   // withCredentials([sshUserPrivateKey(credentialsId: 'git-ssh')]) {
                         sh "git config --global --add user.name janagiramank"
                         sh "git config --global --add user.email k.janagiraman@elsevier.com"
                         version = sh(returnStdout: true, script: "mvn help:evaluate -Dexpression=project.version -q -DforceStdout").trim()
@@ -27,7 +27,7 @@ pipeline {
                         sh "git branch --set-upstream-to=origin/main main"
                         sh "git pull"
                         sh "mvn -B gitflow:release -Drevision=${version.replaceAll("-SNAPSHOT","")}"
-                    }
+                   // }
 
                     //GIT_TAG = getArtefactVersionFromLastCommitTag()
                 }
