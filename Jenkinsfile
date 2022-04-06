@@ -18,7 +18,7 @@ pipeline {
                 echo 'Building..'
                 sh 'mvn --version'
                 script {
-                   // withCredentials([sshUserPrivateKey(credentialsId: 'git-ssh')]) {
+                    withCredentials([sshUserPrivateKey(credentialsId: "git-ssh", keyFileVariable: "KEY")]) {
                         sh "git config --global --add user.name janagiramank"
                         sh "git config --global --add user.email k.janagiraman@elsevier.com"
                         def pom = readMavenPom file: 'pom.xml'
@@ -26,7 +26,7 @@ pipeline {
                         sh "git reset --hard origin/main"
                         sh "git branch --set-upstream-to=origin/main main"
                         sh "mvn -B gitflow:release -Drevision=${pom.version.replaceAll("-SNAPSHOT","")}"
-                   // }
+                    }
 
                     //GIT_TAG = getArtefactVersionFromLastCommitTag()
                 }
