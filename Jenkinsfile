@@ -18,7 +18,7 @@ pipeline {
                 echo 'Building..'
                 sh 'mvn --version'
                 script {
-                    withCredentials([sshUserPrivateKey(credentialsId: "git-ssh", keyFileVariable: "KEY")]) {
+                    withCredentials([gitUsernamePassword(credentialsId: 'git-up', gitToolName: 'git-tool')]) {
                         sh "git config --global --add user.name janagiramank"
                         sh "git config --global --add user.email k.janagiraman@elsevier.com"
                         def pom = readMavenPom file: 'pom.xml'
