@@ -8,32 +8,31 @@ pipeline {
     }
 
     stages {
-//        stage('Checkout') {
-//            steps {
-//                scmSkip(deleteBuild: true, skipPattern:'.*\\[ci skip\\].*')
-//            }
-//        }
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                echo 'Building..'
-                sh 'mvn --version'
-                script {
-                   // withCredentials([sshUserPrivateKey(credentialsId: 'git-ssh')]) {
-                        sh "git config --global --add user.name janagiramank"
-                        sh "git config --global --add user.email k.janagiraman@elsevier.com"
-                        def pom = readMavenPom file: 'pom.xml'
+                scmSkip(deleteBuild: true, skipPattern:'.*\\[ci skip\\].*')
+            }
+        }
+//        stage('Build') {
+//            steps {
+//                echo 'Building..'
+//                sh 'mvn --version'
+//                script {
+//                   // withCredentials([sshUserPrivateKey(credentialsId: 'git-ssh')]) {
+//                        sh "git config --global --add user.name janagiramank"
+//                        sh "git config --global --add user.email k.janagiraman@elsevier.com"
+//                        def pom = readMavenPom file: 'pom.xml'
 //                        sh "git checkout main"
 //                        sh "git reset --hard origin/main"
 //                        sh "git branch --set-upstream-to=origin/main main"
-//                        sh "git pull"
-                        sh "mvn -B gitflow:release -Drevision=${pom.version.replaceAll("-SNAPSHOT","")}"
-                   // }
-
-                    //GIT_TAG = getArtefactVersionFromLastCommitTag()
-                }
-                //echo("GIT_TAG_SELECTOR=${GIT_TAG}")
-            }
-        }
+//                        sh "mvn -B gitflow:release -Drevision=${pom.version.replaceAll("-SNAPSHOT","")}"
+//                   // }
+//
+//                    //GIT_TAG = getArtefactVersionFromLastCommitTag()
+//                }
+//                //echo("GIT_TAG_SELECTOR=${GIT_TAG}")
+//            }
+//        }
     }
 
     post{
