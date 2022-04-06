@@ -21,10 +21,11 @@ pipeline {
                     sh "git config --global --add user.name janagiramank"
                     sh "git config --global --add user.email k.janagiraman@elsevier.com"
                     def pom = readMavenPom file: 'pom.xml'
-                    sh "mvn -B gitflow:release -Drevision=${pom.version.replaceAll("-SNAPSHOT","")}"
-                    GIT_TAG = getArtefactVersionFromLastCommitTag()
+                    sh "git pull"
+                    //sh "mvn -B gitflow:release -Drevision=${pom.version.replaceAll("-SNAPSHOT","")}"
+                    //GIT_TAG = getArtefactVersionFromLastCommitTag()
                 }
-                echo("GIT_TAG_SELECTOR=${GIT_TAG}")
+                //echo("GIT_TAG_SELECTOR=${GIT_TAG}")
             }
         }
     }
