@@ -18,9 +18,12 @@ pipeline {
                 echo 'Building..'
                 sh 'mvn --version'
                 script {
+                    withCredentials([sshUserPrivateKey(credentialsId: 'git-ssh')]) {
+                    }
                     sh "git config --global --add user.name janagiramank"
                     sh "git config --global --add user.email k.janagiraman@elsevier.com"
                     def pom = readMavenPom file: 'pom.xml'
+                    sh "git branch -u origin/main"
                     sh "git pull"
                     //sh "mvn -B gitflow:release -Drevision=${pom.version.replaceAll("-SNAPSHOT","")}"
                     //GIT_TAG = getArtefactVersionFromLastCommitTag()
