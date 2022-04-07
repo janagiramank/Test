@@ -27,9 +27,6 @@ pipeline {
                         sh "git config --global --add user.name janagiramank"
                         sh "git config --global --add user.email k.janagiraman@elsevier.com"
                         def pom = readMavenPom file: 'pom.xml'
-                        sh "git checkout main"
-                        sh "git reset --hard origin/main"
-                        sh "git branch --set-upstream-to=origin/main main"
                         sh "mvn -B gitflow:release -Drevision=${pom.version.replaceAll("-SNAPSHOT","")}"
                     }
                 }
