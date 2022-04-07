@@ -8,6 +8,11 @@ pipeline {
     }
 
     stages {
+        stage("start"){
+            steps{
+                checkout scm
+            }
+        }
         stage('Checkout') {
             steps {
                 scmSkip(deleteBuild: true, skipPattern:'.*\\[ci skip\\].*')
@@ -27,10 +32,7 @@ pipeline {
                         sh "git branch --set-upstream-to=origin/main main"
                         sh "mvn -B gitflow:release -Drevision=${pom.version.replaceAll("-SNAPSHOT","")}"
                     }
-
-                    //GIT_TAG = getArtefactVersionFromLastCommitTag()
                 }
-                //echo("GIT_TAG_SELECTOR=${GIT_TAG}")
             }
         }
     }
