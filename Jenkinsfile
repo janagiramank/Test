@@ -36,6 +36,7 @@ pipeline {
 
     post{
         always{
+            deleteDir()
             slackSend channel: 'general' , message: 'please check the pipeline status'
         }
     }
